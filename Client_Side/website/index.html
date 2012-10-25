@@ -9,50 +9,51 @@
     <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)"/>
 
 <link rel="stylesheet" type="text/css" href="layout/layout.css"/>
+
+<script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 <body>
          <div id="header">
 			<div id = "lauftext" ><marquee>QuickQuizzer</marquee></div>
-                 <div id = "login">
-                 login
-                 </div>
+			
+            <div id = "login">
+            <button class="btnlogin" value="login" onclick="login()">Login</button>
+            </div>
+            <div id="highscore">
+            <button type="button" class="btnhighscore" value="Highscore" onclick="self.location.href='file:///C:/Users/Enrico/Desktop/quizz/highscore.html'">Highscore</button>
+            </div>
          </div> <!-- Ende header -->
 <div id = "wrapper">
 
 
          <div id="page">
             <div id="container_kategorie">
-                 <div id= "kat1">
-                 <p class= "kat">Naturwissenschaften</p>
-                 </div>
-                 <div id= "kat2">
-                 <p class= "kat">Sport</p>
-                 </div>
-                 <div id= "kat3">
-                 <p class= "kat">Informatik</p>
-                 </div>
+                 <button class="btnkat" value="Naturwissenschaften">Naturwissenschaften</button>
+                 <button class="btnkat" value="Naturwissenschaften">Sport</button>
+                 <button class="btnkat" value="Naturwissenschaften">Informatik</button>
             </div>
             
             <div id="container_frage">
                 <div id="frage">
                 Welcher Schriftsteller hat die Blechtrommel geschrieben?
                 </div>
-            
+                <div id="timer"></div>
+                <button value="Timer" onclick="timer()">Timer</button>
             </div>
             
-            <div id="container_antworten" class = "font_antwort">
-            
-                <div id="antwort1" >
-                Antwort1
+            <div id="container_antworten">
+                
+                <div id="antwort1" class = "font_antwort" >
+                <button class="btnantwort" value="Antwort1">Antwort 1</button>
                 </div>
-                <div id="antwort2">
-                Antwort2
+                <div id="antwort2" class = "font_antwort">
+                <button class="btnantwort" value="Antwort1">Antwort 2</button>
                 </div>
-                <div id="antwort3">
-                Antwort3
+                <div id="antwort3" class = "font_antwort">
+                <button class="btnantwort" value="Antwort1">Antwort 3</button>
                 </div>
-                <div id="antwort4">
-                Antwort4
+                <div id="antwort4" class = "font_antwort">
+                <button class="btnantwort" value="Antwort1">Antwort 4</button>
                 </div>
                 
                 
