@@ -17,6 +17,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -28,11 +31,11 @@
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Datenbankverbindung</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <layout class="QFormLayout" name="formLayout">
+         <layout class="QFormLayout" name="formLayout1">
           <property name="fieldGrowthPolicy">
            <enum>QFormLayout::ExpandingFieldsGrow</enum>
           </property>
@@ -66,16 +69,6 @@
           <item row="2" column="1">
            <widget class="QLineEdit" name="txt_dbUser"/>
           </item>
-          <item row="3" column="1">
-           <widget class="QLineEdit" name="txt_dbPasswd"/>
-          </item>
-          <item row="4" column="1">
-           <widget class="QPushButton" name="btn_dbConnect">
-            <property name="text">
-             <string>Verbinden</string>
-            </property>
-           </widget>
-          </item>
           <item row="3" column="0">
            <widget class="QLabel" name="lbl_dbUserPasswd">
             <property name="text">
@@ -83,8 +76,29 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="QTextEdit" name="txt_debug"/>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="txt_dbPasswd"/>
+          </item>
+          <item row="4" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout1">
+            <item>
+             <widget class="QPushButton" name="btn_dbConnect">
+              <property name="text">
+               <string>Verbinden</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_dbDisconnect">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Trennen</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="lbl_debug">
@@ -93,14 +107,148 @@
             </property>
            </widget>
           </item>
+          <item row="5" column="1">
+           <widget class="QTextEdit" name="txt_debug"/>
+          </item>
          </layout>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Frage hinzufügen</string>
        </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <layout class="QFormLayout" name="formLayout2">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::ExpandingFieldsGrow</enum>
+          </property>
+          <property name="verticalSpacing">
+           <number>6</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbl_question">
+            <property name="text">
+             <string>Neue Quizfrage</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="txt_question"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lbl_answer1">
+            <property name="text">
+             <string>Antwort 1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="txt_answer1"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbl_answer2">
+            <property name="text">
+             <string>Antwort 2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="txt_answer2"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lbl_answer3">
+            <property name="text">
+             <string>Antwort 3</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="txt_answer3"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="lbl_answer4">
+            <property name="text">
+             <string>Antwort 4</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="txt_answer4"/>
+          </item>
+          <item row="5" column="1">
+           <widget class="QComboBox" name="cmb_category">
+            <property name="insertPolicy">
+             <enum>QComboBox::InsertAlphabetically</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QPushButton" name="btn_sendQuestion">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Senden</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_abortQuestion">
+              <property name="text">
+               <string>Abbrechen</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="lbl_category">
+            <property name="text">
+             <string>Kategorie</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QComboBox" name="cmb_difficulty"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="lbl_difficulty">
+            <property name="text">
+             <string>Schwierigkeitsgrad</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QComboBox" name="cmb_correctAnswerIndex"/>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="lbl_correctAnswerIndex">
+            <property name="text">
+             <string>Richtige Antwort</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Datensatz löschen</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QFormLayout" name="formLayout_2">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+          </property>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

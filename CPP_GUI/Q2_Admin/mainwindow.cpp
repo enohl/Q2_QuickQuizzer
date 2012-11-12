@@ -8,13 +8,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dbhandler.h"
-/*#include "/usr/include/mysql-connector/mysql_connection.h"
-
-#include </usr/include/mysql-connector/cppconn/driver.h>
-#include </usr/include/mysql-connector/cppconn/exception.h>
-#include </usr/include/mysql-connector/cppconn/resultset.h>
-#include </usr/include/mysql-connector/cppconn/statement.h>
-#include </usr/include/mysql-connector/cppconn/prepared_statement.h>*/
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -23,7 +16,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->dbHandler = DBHandler();
-    connect(ui->btn_dbConnect, SIGNAL(clicked()), this, SLOT(btn_dbConnectOnFirstClick()));
+    mStatLabel = new QLabel;
+    statusBar()->addPermanentWidget(mStatLabel);
+
+    // Signals/Slots
+    connect(ui->btn_dbConnect, SIGNAL(clicked()), this, SLOT(btn_dbConnectOnClick()));
+    connect(ui->btn_dbDisconnect, SIGNAL(clicked()), this, SLOT(btn_dbDisconnectOnClick()));
 }
 
 MainWindow::~MainWindow()
@@ -43,26 +41,74 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::btn_dbConnectOnSecondClick(){
-    this->dbHandler.dbClose();
-    ui->txt_debug->append("Verbindung geschlossen");
+// Befülle ComboBox mit den Fragekategorien
+void MainWindow::fillComboBoxes(){
+
+    QStringList categories      = this->dbHandler.dbGetCategories();
+    QStringList difficulties    = this->dbHandler.dbGetDifficulties();
+    ui->cmb_category->addItems(categories);
+    ui->cmb_difficulty->addItems(difficulties);
 }
 
-void MainWindow::btn_dbConnectOnFirstClick(){
+// SLOT: Button-Methode "Verbinden"
+void MainWindow::btn_dbConnectOnClick(){
+
+    // lese Eingabe felder aus
     this->DBHOST = ui->txt_dbHost->text();
     this->DBNAME = ui->txt_dbName->text();
     this->DBUSER = ui->txt_dbUser->text();
     this->DBPASSWD = ui->txt_dbPasswd->text();
 
+    // Verbinde zu Datenbank
     int returnCode = this->dbHandler.dbConnect(this->DBHOST,this->DBNAME,this->DBUSER,this->DBPASSWD);
+
     if (returnCode == 0) {
-        ui->btn_dbConnect->setText(QString::fromUtf8("Verbindung schließen"));
-        disconnect(ui->btn_dbConnect, SIGNAL(clicked()), this, SLOT(btn_dbConnectOnFirstClick()));
-        connect(ui->btn_dbConnect, SIGNAL(clicked()), this, SLOT(btn_dbConnectOnSecondClick()));
+
+        // Wenn Verbindung erfolgreich,..
+        // Deaktiviere Verbinden-Button
+        ui->btn_dbConnect->setEnabled(false);
+
+        // Aktiviere Trennen-Button
+        ui->btn_dbDisconnect->setEnabled(true);
+
+        //Aktiviere Senden-Button für Neue Quizfrage
+        ui->btn_sendQuestion->setEnabled(true);
+
+        this->mStatLabel->setText("Datenbankverbindung aktiv.");
+
+        fillComboBoxes();
+
+    } else {
+        // Verbindung nicht erfolgreich..
+        ui->txt_debug->append("Verbindung konnte nicht aufgebaut werden.");
+        this->mStatLabel->setText("Datenbankverbindung getrennt.");
     }
+
+    // Debug-Informationen
     QString returnString = QString::number(returnCode);
-    ui->txt_debug->setText(this->DBHOST+"\n"+this->DBNAME+"\n"+this->DBUSER+"\n"+this->DBPASSWD+"\nReturncode="+returnString);
-    this->dbHandler.dbShowTablesQuery();
+    ui->txt_debug->append("DB-Host: "+this->DBHOST+"\nDatenbank: "+this->DBNAME+"\nBenutzer: "+this->DBUSER+"\nPasswort: "+this->DBPASSWD+"\nDB-Connect-Returncode="+returnString);
+
+    //Frage alle Tabelle der DB ab
+    this->dbHandler.dbShowTablesQuery(&this->DBNAME);
+    //Frage alle Fragekategorien ab
+    this->dbHandler.dbGetCategories();
 }
 
+// SLOT: Button-Methode "Trennen"
+void MainWindow::btn_dbDisconnectOnClick(){
+
+    // Trenne Datenbankverbindung
+    this->dbHandler.dbClose();
+
+    //Aktiviere/Deaktiviere entsprechende Buttons
+    ui->btn_dbDisconnect->setEnabled(false);
+    ui->btn_dbConnect->setEnabled(true);
+    ui->btn_sendQuestion->setEnabled(false);
+
+    //Debug-Informationen
+    ui->txt_debug->append("Verbindung geschlossen");
+
+    //StatusBar aktualisieren
+    this->mStatLabel->setText("Datenbankverbindung getrennt.");
+}
 

@@ -18,8 +18,11 @@ public:
 
     DBHandler();
     int dbConnect(QString &host, QString &dbName, QString &dbUser, QString &dbPasswd);
+    void dbShowTablesQuery(QString *dbName);
+    QStringList dbGetCategories();
+    QStringList dbGetDifficulties();
+    void dbInsertQuestion(QString &question, QString &answer1, QString &answer2, QString &answer3, QString &answer4);
     void dbClose();
-    void dbShowTablesQuery();
 private:
 
     QSqlDatabase db; 

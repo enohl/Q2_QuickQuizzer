@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu Nov 8 22:44:39 2012
+** Created: Mon Nov 12 11:24:46 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -32,14 +32,14 @@ static const uint qt_meta_data_MainWindow[] = {
 
  // slots: signature, parameters, type, tag, flags
       12,   11,   11,   11, 0x08,
-      40,   11,   11,   11, 0x08,
+      35,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0btn_dbConnectOnFirstClick()\0"
-    "btn_dbConnectOnSecondClick()\0"
+    "MainWindow\0\0btn_dbConnectOnClick()\0"
+    "btn_dbDisconnectOnClick()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -48,8 +48,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_ASSERT(staticMetaObject.cast(_o));
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->btn_dbConnectOnFirstClick(); break;
-        case 1: _t->btn_dbConnectOnSecondClick(); break;
+        case 0: _t->btn_dbConnectOnClick(); break;
+        case 1: _t->btn_dbDisconnectOnClick(); break;
         default: ;
         }
     }

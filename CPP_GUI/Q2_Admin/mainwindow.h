@@ -10,10 +10,11 @@
 #include <QMainWindow>
 #include "dbhandler.h"
 
-
 namespace Ui {
     class MainWindow;
 }
+
+class QLabel;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -23,8 +24,8 @@ public:
     ~MainWindow();
 private slots:
 
-    void btn_dbConnectOnFirstClick();
-    void btn_dbConnectOnSecondClick();
+    void btn_dbConnectOnClick();
+    void btn_dbDisconnectOnClick();
 protected:
 
     void changeEvent(QEvent *e);
@@ -32,10 +33,13 @@ private:
 
     Ui::MainWindow *ui;
     DBHandler dbHandler;
+    QLabel *mStatLabel;
     QString DBHOST;
     QString DBNAME;
     QString DBUSER;
     QString DBPASSWD;
+
+    void fillComboBoxes();
 };
 
 #endif // MAINWINDOW_H
