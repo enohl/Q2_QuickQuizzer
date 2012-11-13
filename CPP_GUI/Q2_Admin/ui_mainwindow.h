@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Nov 12 11:30:56 2012
+** Created: Mon Nov 12 21:46:50 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -97,7 +97,7 @@ public:
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setEnabled(true);
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
@@ -246,6 +246,11 @@ public:
 
         cmb_category = new QComboBox(tab_2);
         cmb_category->setObjectName(QString::fromUtf8("cmb_category"));
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(cmb_category->sizePolicy().hasHeightForWidth());
+        cmb_category->setSizePolicy(sizePolicy1);
         cmb_category->setInsertPolicy(QComboBox::InsertAlphabetically);
 
         formLayout2->setWidget(5, QFormLayout::FieldRole, cmb_category);

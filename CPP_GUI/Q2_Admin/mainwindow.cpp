@@ -46,6 +46,8 @@ void MainWindow::fillComboBoxes(){
 
     QStringList categories      = this->dbHandler.dbGetCategories();
     QStringList difficulties    = this->dbHandler.dbGetDifficulties();
+    ui->cmb_category->clear();
+    ui->cmb_difficulty->clear();
     ui->cmb_category->addItems(categories);
     ui->cmb_difficulty->addItems(difficulties);
 }
@@ -104,6 +106,10 @@ void MainWindow::btn_dbDisconnectOnClick(){
     ui->btn_dbDisconnect->setEnabled(false);
     ui->btn_dbConnect->setEnabled(true);
     ui->btn_sendQuestion->setEnabled(false);
+
+    //Leere die ComboBoxen
+    ui->cmb_category->clear();
+    ui->cmb_difficulty->clear();
 
     //Debug-Informationen
     ui->txt_debug->append("Verbindung geschlossen");
