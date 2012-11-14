@@ -50,12 +50,16 @@ void MainWindow::changeEvent(QEvent *e)
 // Befülle ComboBox mit den Fragekategorien
 void MainWindow::fillComboBoxes(){
 
+    /*
+     * Vorerst nicht benötigt, da Tab "Frage hinzufügen" gelöscht
+     *
     QStringList categories      = this->dbHandler.dbGetCategories();
     QStringList difficulties    = this->dbHandler.dbGetDifficulties();
     ui->cmb_category->clear();
     ui->cmb_difficulty->clear();
     ui->cmb_category->addItems(categories);
     ui->cmb_difficulty->addItems(difficulties);
+    */
 
     //Befülle ComboBox mit Tabellen
     QStringList table = this->dbHandler.dbGetTables(&DBNAME);
@@ -83,9 +87,6 @@ void MainWindow::btn_dbConnectOnClick(){
 
         // Aktiviere Trennen-Button
         ui->btn_dbDisconnect->setEnabled(true);
-
-        //Aktiviere Senden-Button für Neue Quizfrage
-        ui->btn_sendQuestion->setEnabled(true);
 
         this->mStatLabel->setText("Datenbankverbindung aktiv.");
 
@@ -118,11 +119,6 @@ void MainWindow::btn_dbDisconnectOnClick(){
     //Aktiviere/Deaktiviere entsprechende Buttons
     ui->btn_dbDisconnect->setEnabled(false);
     ui->btn_dbConnect->setEnabled(true);
-    ui->btn_sendQuestion->setEnabled(false);
-
-    //Leere die ComboBoxen
-    ui->cmb_category->clear();
-    ui->cmb_difficulty->clear();
 
     //Debug-Informationen
     ui->txt_debug->append("Verbindung geschlossen");
@@ -148,6 +144,7 @@ void MainWindow::cmb_tabellenIndexChanged(){
     tableModel->select();//Datensätze holen
     ui->tblView_tabellen->setModel(tableModel);//tableview mit tablemodel verknüpfen
     ui->tblView_tabellen->setItemDelegate(new QSqlRelationalDelegate(ui->tblView_tabellen));//Verweis von tableView auf tableView
+    ui->tblView_tabellen->horizontalHeader()->setResizeMode(QHeaderView::ResizeToContents);//Passt Spaltenbreite auf Inhalt an (bei langen Spaltennamen)
     ui->tblView_tabellen->show();//View anzeigen
 }
 
