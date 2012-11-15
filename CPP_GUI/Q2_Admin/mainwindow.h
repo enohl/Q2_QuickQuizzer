@@ -30,6 +30,7 @@ private slots:
     void btn_deleteOnClick();
     void btn_changeOnClick();
     void btn_addOnClick();
+    void btn_editOnClick();
 
 protected:
 
