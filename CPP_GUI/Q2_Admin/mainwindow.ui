@@ -155,6 +155,9 @@
           </item>
           <item row="1" column="0" colspan="2">
            <widget class="QTableView" name="tblView_tabellen">
+            <property name="editTriggers">
+             <set>QAbstractItemView::EditKeyPressed</set>
+            </property>
             <property name="selectionMode">
              <enum>QAbstractItemView::SingleSelection</enum>
             </property>
@@ -164,9 +167,16 @@
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QPushButton" name="btn_delete">
+           <widget class="QPushButton" name="btn_edit">
             <property name="text">
-             <string>Datensatz loeschen</string>
+             <string>Edit</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QPushButton" name="btn_change">
+            <property name="text">
+             <string>Speichern</string>
             </property>
            </widget>
           </item>
@@ -177,10 +187,10 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="QPushButton" name="btn_change">
+          <item row="4" column="1">
+           <widget class="QPushButton" name="btn_delete">
             <property name="text">
-             <string>Speichern</string>
+             <string>Datensatz loeschen</string>
             </property>
            </widget>
           </item>

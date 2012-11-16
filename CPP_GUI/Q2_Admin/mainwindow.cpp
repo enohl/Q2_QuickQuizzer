@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->cmb_tabellen, SIGNAL(currentIndexChanged(QString)), this, SLOT(cmb_tabellenIndexChanged()));
     connect(ui->btn_change, SIGNAL(clicked()), this, SLOT(btn_changeOnClick()));
     connect(ui->btn_add,SIGNAL(clicked()), this, SLOT (btn_addOnClick()));
+    connect(ui->btn_edit, SIGNAL(clicked()), this, SLOT(btn_editOnClick()));
+
 }
 
 MainWindow::~MainWindow()
@@ -158,4 +160,10 @@ void MainWindow::btn_changeOnClick(){
 //SLOT: Button-Methode Datensatz hinzufügen
 void MainWindow::btn_addOnClick(){
     tableModel->insertRow(tableModel->rowCount());//neuen Datensatz hinzufügen
+}
+
+//SLOT: Button-Methode Tabelle editieren
+void MainWindow::btn_editOnClick(){
+
+    ui->tblView_tabellen->setEditTriggers(QAbstractItemView::DoubleClicked);
 }
