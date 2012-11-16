@@ -114,6 +114,9 @@ void MainWindow::btn_dbConnectOnClick(){
 // SLOT: Button-Methode "Trennen"
 void MainWindow::btn_dbDisconnectOnClick(){
 
+    // Alle bestehenden Verbindungen zur DB schließen
+
+    delete this->tableModel;
 
     // Trenne Datenbankverbindung
     this->dbHandler.dbClose();

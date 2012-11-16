@@ -1,13 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
->>>>>>>>>>>>>>>>>>>> File 1
-** Created: Wed Nov 14 22:11:13 2012
->>>>>>>>>>>>>>>>>>>> File 2
-** Created: Wed Nov 14 15:13:39 2012
->>>>>>>>>>>>>>>>>>>> File 3
-** Created: Thu Nov 15 09:08:56 2012
-<<<<<<<<<<<<<<<<<<<<
+** Created: Fri Nov 16 11:05:54 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -69,11 +63,11 @@ public:
     QTableView *tblView_tabellen;
     QPushButton *btn_edit;
     QPushButton *btn_change;
+    QPushButton *btn_add;
+    QPushButton *btn_delete;
     QWidget *tab3;
     QHBoxLayout *horizontalLayout_3;
     QFormLayout *formLayout_3;
-    QPushButton *btn_add;
-    QPushButton *btn_delete;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -207,20 +201,22 @@ public:
 
         formLayout_2->setWidget(1, QFormLayout::SpanningRole, tblView_tabellen);
 
-        btn_delete = new QPushButton(tab2);
+        btn_edit = new QPushButton(tab2);
         btn_edit->setObjectName(QString::fromUtf8("btn_edit"));
 
         formLayout_2->setWidget(3, QFormLayout::LabelRole, btn_edit);
 
-        btn_add = new QPushButton(tab2);
+        btn_change = new QPushButton(tab2);
         btn_change->setObjectName(QString::fromUtf8("btn_change"));
+
         formLayout_2->setWidget(4, QFormLayout::LabelRole, btn_change);
-        btn_add = new QPushButton(tab_3);
+
+        btn_add = new QPushButton(tab2);
         btn_add->setObjectName(QString::fromUtf8("btn_add"));
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, btn_add);
 
-        btn_change = new QPushButton(tab2);
+        btn_delete = new QPushButton(tab2);
         btn_delete->setObjectName(QString::fromUtf8("btn_delete"));
 
         formLayout_2->setWidget(4, QFormLayout::FieldRole, btn_delete);
@@ -260,7 +256,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -284,10 +280,10 @@ public:
         lbl_tabelle->setText(QApplication::translate("MainWindow", "Tabelle ausw\303\244hlen", 0, QApplication::UnicodeUTF8));
         btn_edit->setText(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));
         btn_change->setText(QApplication::translate("MainWindow", "Speichern", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab2), QApplication::translate("MainWindow", "Datensatz manipulieren", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab3), QApplication::translate("MainWindow", "Konfig-Datei bearbeiten", 0, QApplication::UnicodeUTF8));
         btn_add->setText(QApplication::translate("MainWindow", "Datensatz hinzuf\303\274gen", 0, QApplication::UnicodeUTF8));
         btn_delete->setText(QApplication::translate("MainWindow", "Datensatz loeschen", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab2), QApplication::translate("MainWindow", "Datensatz manipulieren", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab3), QApplication::translate("MainWindow", "Konfig-Datei bearbeiten", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
