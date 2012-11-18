@@ -9,8 +9,6 @@
 #include "ui_mainwindow.h"
 #include "dbhandler.h"
 #include <QtSql>
-#include <qmessagebox.h>
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
