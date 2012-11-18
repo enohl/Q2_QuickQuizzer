@@ -9,6 +9,7 @@
 
 #include <QMainWindow>
 #include "dbhandler.h"
+#include "filehandler.h"
 #include <QSqlRelationalTableModel>
 #include <QMessageBox>
 
@@ -25,12 +26,13 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void show_infobox(QString msg, QString detmsg);
+    void showInfobox(QString msg, QString detmsg);
 
 private slots:
 
     void btn_dbConnectOnClick();
     void btn_dbDisconnectOnClick();
+    void btn_normanOnClick();
     void cmb_tabellenIndexChanged();
     void btn_deleteOnClick();
     void btn_saveOnClick();
@@ -45,6 +47,7 @@ private:
 
     Ui::MainWindow *ui;
     DBHandler dbHandler;
+    FileHandler fileHandler;
     QLabel *mStatLabel;
     QString DBHOST;
     QString DBNAME;

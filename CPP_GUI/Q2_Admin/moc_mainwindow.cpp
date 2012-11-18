@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sun Nov 18 18:32:36 2012
+** Created: Sun Nov 18 20:36:41 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,17 +34,18 @@ static const uint qt_meta_data_MainWindow[] = {
       12,   11,   11,   11, 0x08,
       35,   11,   11,   11, 0x08,
       61,   11,   11,   11, 0x08,
-      88,   11,   11,   11, 0x08,
+      81,   11,   11,   11, 0x08,
      108,   11,   11,   11, 0x08,
-     126,   11,   11,   11, 0x08,
-     143,   11,   11,   11, 0x08,
+     128,   11,   11,   11, 0x08,
+     146,   11,   11,   11, 0x08,
+     163,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0btn_dbConnectOnClick()\0"
-    "btn_dbDisconnectOnClick()\0"
+    "btn_dbDisconnectOnClick()\0btn_normanOnClick()\0"
     "cmb_tabellenIndexChanged()\0"
     "btn_deleteOnClick()\0btn_saveOnClick()\0"
     "btn_addOnClick()\0btn_editOnClick()\0"
@@ -58,11 +59,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->btn_dbConnectOnClick(); break;
         case 1: _t->btn_dbDisconnectOnClick(); break;
-        case 2: _t->cmb_tabellenIndexChanged(); break;
-        case 3: _t->btn_deleteOnClick(); break;
-        case 4: _t->btn_saveOnClick(); break;
-        case 5: _t->btn_addOnClick(); break;
-        case 6: _t->btn_editOnClick(); break;
+        case 2: _t->btn_normanOnClick(); break;
+        case 3: _t->cmb_tabellenIndexChanged(); break;
+        case 4: _t->btn_deleteOnClick(); break;
+        case 5: _t->btn_saveOnClick(); break;
+        case 6: _t->btn_addOnClick(); break;
+        case 7: _t->btn_editOnClick(); break;
         default: ;
         }
     }
@@ -101,9 +103,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

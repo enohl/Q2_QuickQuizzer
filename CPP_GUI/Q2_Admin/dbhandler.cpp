@@ -57,7 +57,6 @@ QStringList DBHandler::dbGetTables(QString *dbName){
     return tables;
 }
 
-
 // Hole Fragenkategorien aus Datenbank
 QStringList DBHandler::dbGetCategories(){
     this->query = QSqlQuery("SELECT Category_Text FROM dt_Category;");
@@ -82,18 +81,6 @@ QStringList DBHandler::dbGetDifficulties(){
         qDebug() << this->query.value(this->record.indexOf("Difficulty_Value")).toString();
     }
     return difficulties;
-}
-
-// Neue Quizfrage hinzufuegen
-void DBHandler::dbInsertQuestion(QString &question, QString &answer1, QString &answer2, QString &answer3, QString &answer4){
-    this->query.prepare("INSERT INTO dt_Question (Question_UUID, Question_Text, Question_Category_UUID, Question_Difficulty_UUID, "
-                                                    "Question_Answer1, Question_Answer2, Question_Answer3, Question_Answer4, Question_Correct_Answer_Index)"
-                        "VALUES(:Question_UUID, :Question_Text, :Question_Category_UUID, :Question_Difficulty_UUID, "
-                                ":Question_Answer1, :Question_Answer2, :Question_Answer3, :Question_Answer4, :Question_Correct_Answer_Index)");
-
-    //QUuid uuid = QUuid::createUuid();
-    //this->query.bindValue(":Question_UUID", *uuid);
-    //this->query.bindValue(":Question_Text", question);
 }
 
 // Schließe Datenbankverbindung
