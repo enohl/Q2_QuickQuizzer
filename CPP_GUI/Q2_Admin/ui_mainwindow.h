@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri Nov 16 12:20:01 2012
+** Created: Sun Nov 18 23:15:32 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,6 +17,7 @@
 #include <QtGui/QComboBox>
 #include <QtGui/QFormLayout>
 #include <QtGui/QGridLayout>
+#include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
@@ -54,25 +55,27 @@ public:
     QHBoxLayout *horizontalLayout1;
     QPushButton *btn_dbConnect;
     QPushButton *btn_dbDisconnect;
+    QPushButton *btn_norman;
     QLabel *lbl_debug;
     QTextEdit *txt_debug;
     QWidget *tab2;
-    QWidget *horizontalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QGroupBox *gb_selectTable;
+    QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_4;
-    QLabel *lbl_tabelle;
     QComboBox *cmb_tabellen;
     QPushButton *btn_edit;
     QPushButton *btn_change;
-    QWidget *gridLayoutWidget;
+    QGroupBox *gb_editTable;
+    QVBoxLayout *verticalLayout_3;
     QGridLayout *gridLayout;
     QTableView *tblView_tabellen;
-    QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *btn_add;
     QPushButton *btn_delete;
     QWidget *tab3;
     QHBoxLayout *horizontalLayout_3;
-    QFormLayout *formLayout_3;
+    QGroupBox *gb_settings;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -161,6 +164,11 @@ public:
 
         horizontalLayout1->addWidget(btn_dbDisconnect);
 
+        btn_norman = new QPushButton(tab);
+        btn_norman->setObjectName(QString::fromUtf8("btn_norman"));
+
+        horizontalLayout1->addWidget(btn_norman);
+
 
         formLayout_1->setLayout(4, QFormLayout::FieldRole, horizontalLayout1);
 
@@ -180,43 +188,50 @@ public:
         tabWidget->addTab(tab, QString());
         tab2 = new QWidget();
         tab2->setObjectName(QString::fromUtf8("tab2"));
-        horizontalLayoutWidget = new QWidget(tab2);
-        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(20, 0, 461, 61));
-        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget);
+        verticalLayout = new QVBoxLayout(tab2);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        gb_selectTable = new QGroupBox(tab2);
+        gb_selectTable->setObjectName(QString::fromUtf8("gb_selectTable"));
+        verticalLayout_4 = new QVBoxLayout(gb_selectTable);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        lbl_tabelle = new QLabel(horizontalLayoutWidget);
-        lbl_tabelle->setObjectName(QString::fromUtf8("lbl_tabelle"));
-
-        horizontalLayout_4->addWidget(lbl_tabelle, 0, Qt::AlignLeft);
-
-        cmb_tabellen = new QComboBox(horizontalLayoutWidget);
+        cmb_tabellen = new QComboBox(gb_selectTable);
         cmb_tabellen->setObjectName(QString::fromUtf8("cmb_tabellen"));
 
         horizontalLayout_4->addWidget(cmb_tabellen);
 
-        btn_edit = new QPushButton(horizontalLayoutWidget);
+        btn_edit = new QPushButton(gb_selectTable);
         btn_edit->setObjectName(QString::fromUtf8("btn_edit"));
 
         horizontalLayout_4->addWidget(btn_edit);
 
-        btn_change = new QPushButton(horizontalLayoutWidget);
+        btn_change = new QPushButton(gb_selectTable);
         btn_change->setObjectName(QString::fromUtf8("btn_change"));
 
         horizontalLayout_4->addWidget(btn_change);
 
-        gridLayoutWidget = new QWidget(tab2);
-        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(20, 80, 461, 211));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+
+        verticalLayout_4->addLayout(horizontalLayout_4);
+
+
+        verticalLayout->addWidget(gb_selectTable);
+
+        gb_editTable = new QGroupBox(tab2);
+        gb_editTable->setObjectName(QString::fromUtf8("gb_editTable"));
+        verticalLayout_3 = new QVBoxLayout(gb_editTable);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        tblView_tabellen = new QTableView(gridLayoutWidget);
+        tblView_tabellen = new QTableView(gb_editTable);
         tblView_tabellen->setObjectName(QString::fromUtf8("tblView_tabellen"));
         tblView_tabellen->setEditTriggers(QAbstractItemView::EditKeyPressed);
         tblView_tabellen->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -224,23 +239,27 @@ public:
 
         gridLayout->addWidget(tblView_tabellen, 0, 0, 1, 1);
 
-        horizontalLayoutWidget_2 = new QWidget(tab2);
-        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(20, 300, 461, 80));
-        horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_2);
+
+        verticalLayout_3->addLayout(gridLayout);
+
+        horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        btn_add = new QPushButton(horizontalLayoutWidget_2);
+        btn_add = new QPushButton(gb_editTable);
         btn_add->setObjectName(QString::fromUtf8("btn_add"));
 
         horizontalLayout_5->addWidget(btn_add);
 
-        btn_delete = new QPushButton(horizontalLayoutWidget_2);
+        btn_delete = new QPushButton(gb_editTable);
         btn_delete->setObjectName(QString::fromUtf8("btn_delete"));
 
         horizontalLayout_5->addWidget(btn_delete);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_5);
+
+
+        verticalLayout->addWidget(gb_editTable);
 
         tabWidget->addTab(tab2, QString());
         tab3 = new QWidget();
@@ -249,12 +268,24 @@ public:
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        formLayout_3 = new QFormLayout();
-        formLayout_3->setSpacing(6);
-        formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
-        formLayout_3->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+        gb_settings = new QGroupBox(tab3);
+        gb_settings->setObjectName(QString::fromUtf8("gb_settings"));
+        gb_settings->setStyleSheet(QString::fromUtf8(" QGroupBox {\n"
+"     border: 2px solid gray;\n"
+"     border-radius: 5px;\n"
+"     margin-top: 1ex; /* leave space at the top for the title */\n"
+" }\n"
+"\n"
+" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top left; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+" }"));
+        gb_settings->setFlat(false);
+        gb_settings->setCheckable(false);
+        gb_settings->setChecked(false);
 
-        horizontalLayout_3->addLayout(formLayout_3);
+        horizontalLayout_3->addWidget(gb_settings);
 
         tabWidget->addTab(tab3, QString());
 
@@ -293,15 +324,18 @@ public:
         txt_dbPasswd->setText(QApplication::translate("MainWindow", "FGS.209=Wme!", 0, QApplication::UnicodeUTF8));
         btn_dbConnect->setText(QApplication::translate("MainWindow", "Verbinden", 0, QApplication::UnicodeUTF8));
         btn_dbDisconnect->setText(QApplication::translate("MainWindow", "Trennen", 0, QApplication::UnicodeUTF8));
+        btn_norman->setText(QApplication::translate("MainWindow", "Norman", 0, QApplication::UnicodeUTF8));
         lbl_debug->setText(QApplication::translate("MainWindow", "Debug-Info", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Datenbankverbindung", 0, QApplication::UnicodeUTF8));
-        lbl_tabelle->setText(QApplication::translate("MainWindow", "Tabelle ausw\303\244hlen", 0, QApplication::UnicodeUTF8));
+        gb_selectTable->setTitle(QApplication::translate("MainWindow", "Tabelle ausw\303\244hlen:", 0, QApplication::UnicodeUTF8));
         btn_edit->setText(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));
         btn_change->setText(QApplication::translate("MainWindow", "Speichern", 0, QApplication::UnicodeUTF8));
+        gb_editTable->setTitle(QApplication::translate("MainWindow", "Tabelle bearbeiten:", 0, QApplication::UnicodeUTF8));
         btn_add->setText(QApplication::translate("MainWindow", "Datensatz hinzuf\303\274gen", 0, QApplication::UnicodeUTF8));
         btn_delete->setText(QApplication::translate("MainWindow", "Datensatz loeschen", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab2), QApplication::translate("MainWindow", "Datensatz manipulieren", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab3), QApplication::translate("MainWindow", "Konfig-Datei bearbeiten", 0, QApplication::UnicodeUTF8));
+        gb_settings->setTitle(QApplication::translate("MainWindow", "GroupBox", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab3), QApplication::translate("MainWindow", "Einstellungen", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

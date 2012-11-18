@@ -117,6 +117,13 @@
               </property>
              </widget>
             </item>
+            <item>
+             <widget class="QPushButton" name="btn_norman">
+              <property name="text">
+               <string>Norman</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item row="5" column="0">
@@ -137,105 +144,116 @@
        <attribute name="title">
         <string>Datensatz manipulieren</string>
        </attribute>
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>0</y>
-          <width>461</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item alignment="Qt::AlignLeft">
-          <widget class="QLabel" name="lbl_tabelle">
-           <property name="text">
-            <string>Tabelle auswählen</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="cmb_tabellen"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_edit">
-           <property name="text">
-            <string>Edit</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_change">
-           <property name="text">
-            <string>Speichern</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="gridLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>80</y>
-          <width>461</width>
-          <height>211</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0">
-          <widget class="QTableView" name="tblView_tabellen">
-           <property name="editTriggers">
-            <set>QAbstractItemView::EditKeyPressed</set>
-           </property>
-           <property name="selectionMode">
-            <enum>QAbstractItemView::SingleSelection</enum>
-           </property>
-           <property name="selectionBehavior">
-            <enum>QAbstractItemView::SelectRows</enum>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="horizontalLayoutWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>300</y>
-          <width>461</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <widget class="QPushButton" name="btn_add">
-           <property name="text">
-            <string>Datensatz hinzufügen</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btn_delete">
-           <property name="text">
-            <string>Datensatz loeschen</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QGroupBox" name="gb_selectTable">
+          <property name="title">
+           <string>Tabelle auswählen:</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QComboBox" name="cmb_tabellen"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_edit">
+               <property name="text">
+                <string>Edit</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_change">
+               <property name="text">
+                <string>Speichern</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="gb_editTable">
+          <property name="title">
+           <string>Tabelle bearbeiten:</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <widget class="QTableView" name="tblView_tabellen">
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditKeyPressed</set>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QPushButton" name="btn_add">
+               <property name="text">
+                <string>Datensatz hinzufügen</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_delete">
+               <property name="text">
+                <string>Datensatz loeschen</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab3">
        <attribute name="title">
-        <string>Konfig-Datei bearbeiten</string>
+        <string>Einstellungen</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <layout class="QFormLayout" name="formLayout_3">
-          <property name="fieldGrowthPolicy">
-           <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+         <widget class="QGroupBox" name="gb_settings">
+          <property name="styleSheet">
+           <string notr="true"> QGroupBox {
+     border: 2px solid gray;
+     border-radius: 5px;
+     margin-top: 1ex; /* leave space at the top for the title */
+ }
+
+ QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top left; /* position at the top center */
+     padding: 0 3px;
+ }</string>
           </property>
-         </layout>
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
