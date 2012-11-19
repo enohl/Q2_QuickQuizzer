@@ -27,6 +27,7 @@ int DBHandler::dbConnect(QString &host, QString &dbName, QString &dbUser, QStrin
         qDebug() << db.lastError();
         return 1;
     }
+    qDebug() << db.connectOptions();
     return 0;
 }
 

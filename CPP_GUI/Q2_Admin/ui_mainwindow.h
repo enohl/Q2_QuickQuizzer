@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon Nov 19 19:04:17 2012
+** Created: Mon Nov 19 22:10:19 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -42,7 +42,9 @@ public:
     QVBoxLayout *verticalLayout_2;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_5;
+    QGroupBox *groupBox_2;
+    QVBoxLayout *verticalLayout_7;
     QFormLayout *formLayout_1;
     QLabel *lbl_dbHost;
     QLineEdit *txt_dbHost;
@@ -56,7 +58,8 @@ public:
     QPushButton *btn_dbConnect;
     QPushButton *btn_dbDisconnect;
     QPushButton *btn_norman;
-    QLabel *lbl_debug;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_6;
     QTextEdit *txt_debug;
     QWidget *tab2;
     QVBoxLayout *verticalLayout;
@@ -84,7 +87,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(693, 572);
+        MainWindow->resize(711, 701);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayout_2 = new QVBoxLayout(centralWidget);
@@ -101,89 +104,124 @@ public:
         tabWidget->setSizePolicy(sizePolicy);
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
-        horizontalLayout = new QHBoxLayout(tab);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        verticalLayout_5 = new QVBoxLayout(tab);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        groupBox_2 = new QGroupBox(tab);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        groupBox_2->setStyleSheet(QString::fromUtf8(" QGroupBox {\n"
+"     border: 2px solid gray;\n"
+"     border-radius: 5px;\n"
+"     margin-top: 1ex; /* leave space at the top for the title */\n"
+" }\n"
+"\n"
+" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top left; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+" }"));
+        verticalLayout_7 = new QVBoxLayout(groupBox_2);
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         formLayout_1 = new QFormLayout();
         formLayout_1->setSpacing(6);
         formLayout_1->setObjectName(QString::fromUtf8("formLayout_1"));
         formLayout_1->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
-        lbl_dbHost = new QLabel(tab);
+        lbl_dbHost = new QLabel(groupBox_2);
         lbl_dbHost->setObjectName(QString::fromUtf8("lbl_dbHost"));
 
         formLayout_1->setWidget(0, QFormLayout::LabelRole, lbl_dbHost);
 
-        txt_dbHost = new QLineEdit(tab);
+        txt_dbHost = new QLineEdit(groupBox_2);
         txt_dbHost->setObjectName(QString::fromUtf8("txt_dbHost"));
 
         formLayout_1->setWidget(0, QFormLayout::FieldRole, txt_dbHost);
 
-        lbl_dbName = new QLabel(tab);
+        lbl_dbName = new QLabel(groupBox_2);
         lbl_dbName->setObjectName(QString::fromUtf8("lbl_dbName"));
 
         formLayout_1->setWidget(1, QFormLayout::LabelRole, lbl_dbName);
 
-        txt_dbName = new QLineEdit(tab);
+        txt_dbName = new QLineEdit(groupBox_2);
         txt_dbName->setObjectName(QString::fromUtf8("txt_dbName"));
 
         formLayout_1->setWidget(1, QFormLayout::FieldRole, txt_dbName);
 
-        lbl_dbUser = new QLabel(tab);
+        lbl_dbUser = new QLabel(groupBox_2);
         lbl_dbUser->setObjectName(QString::fromUtf8("lbl_dbUser"));
 
         formLayout_1->setWidget(2, QFormLayout::LabelRole, lbl_dbUser);
 
-        txt_dbUser = new QLineEdit(tab);
+        txt_dbUser = new QLineEdit(groupBox_2);
         txt_dbUser->setObjectName(QString::fromUtf8("txt_dbUser"));
 
         formLayout_1->setWidget(2, QFormLayout::FieldRole, txt_dbUser);
 
-        lbl_dbUserPasswd = new QLabel(tab);
+        lbl_dbUserPasswd = new QLabel(groupBox_2);
         lbl_dbUserPasswd->setObjectName(QString::fromUtf8("lbl_dbUserPasswd"));
 
         formLayout_1->setWidget(3, QFormLayout::LabelRole, lbl_dbUserPasswd);
 
-        txt_dbPasswd = new QLineEdit(tab);
+        txt_dbPasswd = new QLineEdit(groupBox_2);
         txt_dbPasswd->setObjectName(QString::fromUtf8("txt_dbPasswd"));
         txt_dbPasswd->setEchoMode(QLineEdit::Password);
 
         formLayout_1->setWidget(3, QFormLayout::FieldRole, txt_dbPasswd);
 
+
+        verticalLayout_7->addLayout(formLayout_1);
+
         horizontalLayout1 = new QHBoxLayout();
         horizontalLayout1->setSpacing(6);
         horizontalLayout1->setObjectName(QString::fromUtf8("horizontalLayout1"));
-        btn_dbConnect = new QPushButton(tab);
+        btn_dbConnect = new QPushButton(groupBox_2);
         btn_dbConnect->setObjectName(QString::fromUtf8("btn_dbConnect"));
 
         horizontalLayout1->addWidget(btn_dbConnect);
 
-        btn_dbDisconnect = new QPushButton(tab);
+        btn_dbDisconnect = new QPushButton(groupBox_2);
         btn_dbDisconnect->setObjectName(QString::fromUtf8("btn_dbDisconnect"));
         btn_dbDisconnect->setEnabled(false);
 
         horizontalLayout1->addWidget(btn_dbDisconnect);
 
-        btn_norman = new QPushButton(tab);
+        btn_norman = new QPushButton(groupBox_2);
         btn_norman->setObjectName(QString::fromUtf8("btn_norman"));
 
         horizontalLayout1->addWidget(btn_norman);
 
 
-        formLayout_1->setLayout(4, QFormLayout::FieldRole, horizontalLayout1);
+        verticalLayout_7->addLayout(horizontalLayout1);
 
-        lbl_debug = new QLabel(tab);
-        lbl_debug->setObjectName(QString::fromUtf8("lbl_debug"));
 
-        formLayout_1->setWidget(5, QFormLayout::LabelRole, lbl_debug);
+        verticalLayout_5->addWidget(groupBox_2);
 
-        txt_debug = new QTextEdit(tab);
+        groupBox = new QGroupBox(tab);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setStyleSheet(QString::fromUtf8(" QGroupBox {\n"
+"     border: 2px solid gray;\n"
+"     border-radius: 5px;\n"
+"     margin-top: 1ex; /* leave space at the top for the title */\n"
+" }\n"
+"\n"
+" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top left; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+" }"));
+        verticalLayout_6 = new QVBoxLayout(groupBox);
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        txt_debug = new QTextEdit(groupBox);
         txt_debug->setObjectName(QString::fromUtf8("txt_debug"));
 
-        formLayout_1->setWidget(5, QFormLayout::FieldRole, txt_debug);
+        verticalLayout_6->addWidget(txt_debug);
 
 
-        horizontalLayout->addLayout(formLayout_1);
+        verticalLayout_5->addWidget(groupBox);
 
         tabWidget->addTab(tab, QString());
         tab2 = new QWidget();
@@ -194,6 +232,17 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         gb_selectTable = new QGroupBox(tab2);
         gb_selectTable->setObjectName(QString::fromUtf8("gb_selectTable"));
+        gb_selectTable->setStyleSheet(QString::fromUtf8(" QGroupBox {\n"
+"     border: 2px solid gray;\n"
+"     border-radius: 5px;\n"
+"     margin-top: 1ex; /* leave space at the top for the title */\n"
+" }\n"
+"\n"
+" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top left; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+" }"));
         verticalLayout_4 = new QVBoxLayout(gb_selectTable);
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -226,6 +275,17 @@ public:
 
         gb_editTable = new QGroupBox(tab2);
         gb_editTable->setObjectName(QString::fromUtf8("gb_editTable"));
+        gb_editTable->setStyleSheet(QString::fromUtf8(" QGroupBox {\n"
+"     border: 2px solid gray;\n"
+"     border-radius: 5px;\n"
+"     margin-top: 1ex; /* leave space at the top for the title */\n"
+" }\n"
+"\n"
+" QGroupBox::title {\n"
+"     subcontrol-origin: margin;\n"
+"     subcontrol-position: top left; /* position at the top center */\n"
+"     padding: 0 3px;\n"
+" }"));
         verticalLayout_3 = new QVBoxLayout(gb_editTable);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -298,7 +358,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 693, 25));
+        menuBar->setGeometry(QRect(0, 0, 711, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -309,7 +369,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -318,6 +378,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "Datenbank", 0, QApplication::UnicodeUTF8));
         lbl_dbHost->setText(QApplication::translate("MainWindow", "DB-Host", 0, QApplication::UnicodeUTF8));
         txt_dbHost->setText(QApplication::translate("MainWindow", "192.168.0.1", 0, QApplication::UnicodeUTF8));
         lbl_dbName->setText(QApplication::translate("MainWindow", "Datenbank", 0, QApplication::UnicodeUTF8));
@@ -329,7 +390,7 @@ public:
         btn_dbConnect->setText(QApplication::translate("MainWindow", "Verbinden", 0, QApplication::UnicodeUTF8));
         btn_dbDisconnect->setText(QApplication::translate("MainWindow", "Trennen", 0, QApplication::UnicodeUTF8));
         btn_norman->setText(QApplication::translate("MainWindow", "Norman", 0, QApplication::UnicodeUTF8));
-        lbl_debug->setText(QApplication::translate("MainWindow", "Debug-Info", 0, QApplication::UnicodeUTF8));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Debug-Info", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Datenbankverbindung", 0, QApplication::UnicodeUTF8));
         gb_selectTable->setTitle(QApplication::translate("MainWindow", "Tabelle ausw\303\244hlen:", 0, QApplication::UnicodeUTF8));
         btn_edit->setText(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));

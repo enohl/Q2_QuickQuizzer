@@ -58,6 +58,7 @@ private:
 
     void fillComboBoxes();
     void fillTableView(QString tblName);
+    void loadKeyValues();
 };
 
 #endif

@@ -19,6 +19,7 @@ public:
     void getFile();
     void addKeyValue(QString key, QString value);
     QHash<QString, QString> getKeyValues();
+    QStringList getKeys();
 private:
     QFile file;
     QStringList keys;

@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->dbHandler = DBHandler();
     mStatLabel = new QLabel;
     statusBar()->addPermanentWidget(mStatLabel);
-
+    loadKeyValues();
     // Signals/Slots
     connect(ui->btn_dbConnect, SIGNAL(clicked()), this, SLOT(btn_dbConnectOnClick()));
     connect(ui->btn_dbDisconnect, SIGNAL(clicked()), this, SLOT(btn_dbDisconnectOnClick()));
@@ -81,6 +81,30 @@ void MainWindow::showInfobox(QString msg, QString detmsg){
     msgBox->setIcon(QMessageBox::Information);
     msgBox->exec();
 
+}
+
+void MainWindow::loadKeyValues(){
+    QStringList keys = this->fileHandler.getKeys();
+    QHash<QString, QString> keyValues = this->fileHandler.getKeyValues();
+    QVBoxLayout *fl = new QVBoxLayout();
+    QHBoxLayout *btnLayout = new QHBoxLayout();
+    QPushButton *btn_sendSettings = new QPushButton(QObject::tr("&Senden"));
+    QPushButton *btn_discardChanges = new QPushButton(QObject::tr("&Abbrechen"));
+    btnLayout->addWidget(btn_sendSettings);
+    btnLayout->addWidget(btn_discardChanges);
+    QLabel *lbl;
+    QLineEdit *txt;
+    foreach (const QString &key, keys){
+        lbl = new QLabel();
+        lbl->setText(key);
+        fl->addWidget(lbl);
+        txt = new QLineEdit();
+        txt->setText(keyValues.value(key));
+        fl->addWidget(txt);
+    }
+    fl->addLayout(btnLayout);
+    fl->addStretch();
+    this->ui->gb_settings->setLayout(fl);
 }
 
 // SLOT: Button-Methode "Verbinden"

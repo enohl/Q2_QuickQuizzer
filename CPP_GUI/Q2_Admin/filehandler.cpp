@@ -5,7 +5,7 @@
 
 FileHandler::FileHandler()
 {
-    QString fileName = "/home/norman/Q2_QuickQuizzer/CPP_GUI/Q2_Admin/file.ini";
+    QString fileName = "file.ini";
     this->file.setFileName(fileName);
     if(this->file.exists()){
         qDebug() << "File " << fileName << " does exist.";
@@ -22,4 +22,8 @@ FileHandler::FileHandler()
 
 QHash<QString, QString> FileHandler::getKeyValues(){
     return this->keyValues;
+}
+
+QStringList FileHandler::getKeys(){
+    return this->keys;
 }
