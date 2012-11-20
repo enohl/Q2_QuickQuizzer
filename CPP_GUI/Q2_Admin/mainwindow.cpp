@@ -9,6 +9,7 @@
 #include "ui_mainwindow.h"
 #include "dbhandler.h"
 #include <QtSql>
+#include <QUuid>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -203,6 +204,9 @@ void MainWindow::cmb_tabellenIndexChanged(){
         this->tableModel->setRelation(2,QSqlRelation("dt_category","Category_UUID","Category_Text"));
         this->tableModel->setRelation(3,QSqlRelation("dt_difficulty","Difficulty_UUID","Difficulty_Value"));
     }
+    else if ((QString)ui->cmb_tabellen->currentText()=="dt_highscore"){
+        this->tableModel->setRelation(1,QSqlRelation("dt_account","Account_UUID","Account_Name"));
+    }
 
 
     this->tableModel->select();//Datensätze holen
@@ -223,7 +227,12 @@ void MainWindow::btn_saveOnClick(){
 
 //SLOT: Button-Methode Datensatz hinzufügen
 void MainWindow::btn_addOnClick(){
-    tableModel->insertRow(tableModel->rowCount());//neuen Datensatz hinzufügen
+    this->record = tableModel->record();
+    record.setValue(0,(QVariant) this->uuid->createUuid());
+    this->tableModel->insertRecord(tableModel->rowCount(),this->record);//neuen Datensatz mit uuid hinzufügen
+     uuid = new QUuid();
+    qDebug() << this->uuid->createUuid();
+
 }
 
 //SLOT: Button-Methode Tabelle editieren

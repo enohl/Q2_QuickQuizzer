@@ -12,6 +12,8 @@
 #include "filehandler.h"
 #include <QSqlRelationalTableModel>
 #include <QMessageBox>
+#include <QUuid>
+#include <QSqlField>
 
 namespace Ui {
     class MainWindow;
@@ -55,6 +57,8 @@ private:
     QString DBPASSWD;
     QSqlRelationalTableModel *tableModel;
     QMessageBox *msgBox;
+    QUuid *uuid;
+    QSqlRecord record;
 
     void fillComboBoxes();
     void fillTableView(QString tblName);
