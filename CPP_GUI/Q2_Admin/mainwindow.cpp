@@ -223,17 +223,32 @@ void MainWindow::btn_saveOnClick(){
     showInfobox((QString)"Aenderungen wurden gespeichert.",(QString)"Hallo");
     tableModel->submitAll();
      ui->tblView_tabellen->setEditTriggers(QAbstractItemView::NoEditTriggers);
+     ui->btn_add->setEnabled(false);
+     ui->btn_delete->setEnabled(false);
+     ui->btn_save->setEnabled(false);
 }
 
 //SLOT: Button-Methode Datensatz hinzufügen
 void MainWindow::btn_addOnClick(){
-    this->record = tableModel->record();
-    record.setValue(0,(QVariant) this->uuid->createUuid());
+    this->record = tableModel->record();//Eintrag für tableModel definieren
+    record.setValue(0,(QVariant) this->uuid->createUuid().toByteArray());//UUID automatisch im ersten Feld erzeugen
     this->tableModel->insertRecord(tableModel->rowCount(),this->record);//neuen Datensatz mit uuid hinzufügen
-     uuid = new QUuid();
-    qDebug() << this->uuid->createUuid();
 
+    //TimeStamp eintragen
+    //uint unix_timestamp = QDateTime::currentDateTime().toTime_t();
+    //qDebug() << unix_timestamp;
 }
+//Model überschreiben
+/*Qt::ItemFlags flags = QAbstractTableModel::flags(index);
+if (index.column() ==1)
+{
+    flags |= Qt::ItemIsEditable;
+    return flags;
+}
+return QAbstractTableModel::flags(index);
+*/
+
+
 
 //SLOT: Button-Methode Tabelle editieren
 void MainWindow::btn_editOnClick(){
